@@ -1,0 +1,263 @@
+-- phpMyAdmin SQL Dump
+-- version 4.9.7
+-- https://www.phpmyadmin.net/
+--
+-- Host: localhost:8889
+-- Generation Time: May 27, 2021 at 10:02 PM
+-- Server version: 5.7.32
+-- PHP Version: 7.4.12
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+--
+-- Database: `Interihe`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Accueil`
+--
+
+CREATE TABLE `Accueil` (
+  `id_accueil` int(11) NOT NULL,
+  `titre` varchar(100) NOT NULL,
+  `sous_titre` varchar(100) NOT NULL,
+  `texte` text NOT NULL,
+  `image` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `Accueil`
+--
+
+INSERT INTO `Accueil` (`id_accueil`, `titre`, `sous_titre`, `texte`, `image`) VALUES
+(1, 'Les Instituts des Hautes Études', 'Relier les intelligences', 'Adossés à l\'État et aux acteurs clés du privé, les Instituts des Hautes Etudes (IHE) ont pour objet la formation au meilleur niveau des responsables issus de la fonction publique , des entreprises, des associations, des représentations électives territoriales, nationales, syndicales, professionnelles. \r\n​\r\nOrganisés autour des grands domaines stratégiques nationaux, ils sont conçus pour mettre en relations des acteurs clés issus d\'univers distincts aux intérêts communs et les sensibiliser aux grands enjeux présents et futurs. À travers un parcours et une pédagogie adaptée ils acquièrent sur un an les fondamentaux qui leurs seront indispensables : intelligence collaborative; \r\nprofondeur; rigueur dans l\'analyse et la synthèse; repères, sources et référents clés.\r\n \r\nDepuis 75 ans, ils fertilisent l\'écosystème national, contribuent à sa dynamique en décloisonnant les secteurs d\'activités et favorisant les liens, croisant les expériences pour un enrichissement mutuel, permettant le développement de l\'excellence de chacun au service de tous.', 'images/background.jpeg');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Auditeur`
+--
+
+CREATE TABLE `Auditeur` (
+  `id_auditeur` int(11) NOT NULL,
+  `photo` varchar(255) NOT NULL,
+  `nom_prenom` varchar(150) NOT NULL,
+  `poste` varchar(150) NOT NULL,
+  `annee_formation` varchar(10) NOT NULL,
+  `avis` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `Auditeur`
+--
+
+INSERT INTO `Auditeur` (`id_auditeur`, `photo`, `nom_prenom`, `poste`, `annee_formation`, `avis`) VALUES
+(1, 'images/claire.png', 'CLAIRE HALLÉGOUET', 'COMMISSARIAT GÉNÉRAL À L\'ÉGALITÉ DES TERRITOIRES', 'CYCLE 2016', 'Beaucoup d’échanges, beaucoup de débats, de confrontations de points de vue, de découvertes.'),
+(2, 'images/dominique.png', 'DOMINIQUE FORGUES', 'CAUCHAN RETAIL FRANCE', 'CYCLE 2016', 'On a finalement très peu d’occasion de se retrouver dans un groupe avec des acteurs du secteur public, privé, des syndicalistes, des journalistes, etc. Cette expérience a été pour moi très enrichissante.'),
+(3, 'images/raphael.png', 'RAPHAËL TAMPONNET', 'LA POSTE BUSINESS UNIT SISVER ECONOMIE', 'CYCLE 2017', 'Faire ce cycle en milieu de carrière est une bonne chose, on a l’expérience et on est encore prêt à faire changer les choses.'),
+(4, 'images/sophie.png', 'SOPHIE RENARD', 'CONSEIL DÉPARTEMENTAL LOIRE-ATLANTIQUE', 'CYCLE 2017', 'Le cycle m’a permis de reconsidérer et dynamiser la dimension “prospective - recherche et développement” de mon poste.'),
+(5, 'images/sybille.png', 'SYBILLE VINCENDON', 'LIBERATION', 'CYCLE 2016', 'L’Ihedate, c’est une fête pour l’esprit !'),
+(6, 'images/thierry.png', 'THIERRY GOURLAY', 'CGT COMITÉ RÉGIONAL BRETAGNE', 'CYCLE 2016', 'Un groupe très très divers qui met en évidence que l’on peut se retrouver même si on n\'a pas forcément les mêmes origines ou les mêmes parcours.');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `AutreTexte`
+--
+
+CREATE TABLE `AutreTexte` (
+  `id_autre` int(11) NOT NULL,
+  `titre` varchar(100) NOT NULL,
+  `sous_titre` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `AutreTexte`
+--
+
+INSERT INTO `AutreTexte` (`id_autre`, `titre`, `sous_titre`) VALUES
+(1, 'Les Instituts des Hautes Études', 'Relier les Intelligences');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Evenement`
+--
+
+CREATE TABLE `Evenement` (
+  `id_event` int(11) NOT NULL,
+  `nom` varchar(150) NOT NULL,
+  `descriptif` text NOT NULL,
+  `date_event` date NOT NULL,
+  `image` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Experience`
+--
+
+CREATE TABLE `Experience` (
+  `id_experience` int(11) NOT NULL,
+  `titre` varchar(75) NOT NULL,
+  `texte` text NOT NULL,
+  `image` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `Experience`
+--
+
+INSERT INTO `Experience` (`id_experience`, `titre`, `texte`, `image`) VALUES
+(1, 'Relier les intelligences', 'Conçus par l\'État dès 1936 (IHEDN) pour sensibiliser largement aux enjeux stratégiques de défense nationale, les IHE ont pour vocation d\'offrir à leurs auditrices et auditeurs une intelligence systémique des domaines étudiés et d\'apporter tout éclairage sur les éléments et problématiques stratégiques pour l\'Etat comme pour le privé.\r\n​\r\nCette compréhension étendue alliée à la possibilité de traiter les questions et besoins plus personnels des auditeurs est indispensable pour les parcours d\'excellence : pour bien agir, il est nécessaire par domaine, de connaître les enjeux et les déterminants ainsi que les positions et stratégie des acteurs.\r\n​\r\nCe sont les seules formations en France positionnées à la confluence de l\'Etat, du législateur, de l’université, de la recherche, de la fonction publique, de l’entreprise et des acteurs de la formation. \r\n​\r\nL\'expérience IHE est conçue pour permettre :\r\n- l\'acquisition de la matière nécessaire pour appréhender en profondeur les enjeux des domaines étudiés et les problématiques des acteurs \r\n- l\'intégration de réflexes, outils et savoir faire améliorant l\'opérationabilité des acteurs dans leur leadership, leurs prises de décisions, leur communication, \r\n​\r\nCompte tenu de la composition des sessions nationales assurant la participation de professionnels d\'excellents niveaux mais de parcours et d\'univers très divers, les logiques et les outils d\'innovation, de collaboration, de développement d\'une intelligence agile et collective, sont hautement favorisés et développés.', 'images/background_8hbqqke.jpeg');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Institut`
+--
+
+CREATE TABLE `Institut` (
+  `id_institut` int(11) NOT NULL,
+  `sigle` varchar(150) NOT NULL,
+  `nom_complet` varchar(150) NOT NULL,
+  `logo` varchar(255) NOT NULL,
+  `presentation` text NOT NULL,
+  `descriptif_formation` text NOT NULL,
+  `website` varchar(255) NOT NULL,
+  `social_media` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `Institut`
+--
+
+INSERT INTO `Institut` (`id_institut`, `sigle`, `nom_complet`, `logo`, `presentation`, `descriptif_formation`, `website`, `social_media`) VALUES
+(1, 'CHEC', 'Cycle des Hautes Études de la Culture', 'images/CHEC.png', 'Dans cette partie, on retrouvera un paragraphe présentant l\'institut CHEC', 'Dans cette partie, on retrouvera un paragraphe présentant un descriptif de formation proposé par l\'institut CHEC', 'https://www.culture.gouv.fr/Nous-connaitre/Organisation/Cycle-des-Hautes-Etudes-de-la-Culture-CHEC', 'https://twitter.com/ministerecc'),
+(2, 'CHEE', 'Cycle des Hautes Études Européennes', 'images/CHEE.png', 'Dans cette partie, on retrouvera un paragraphe présentant l\'institut CHEE', 'Dans cette partie, on retrouvera un paragraphe présentant un descriptif de formation proposé par l\'institut CHEE', 'https://www.ena.fr/Formation/Formation-continue/CHEE', 'https://twitter.com/ENA_fr'),
+(3, 'CHEMI', 'Centre des Hautes Études du Ministère de l\'Intérieur', 'images/CHEMI.png', 'Dans cette partie, on retrouvera un paragraphe présentant l\'institut CHEMI', 'Dans cette partie, on retrouvera un paragraphe présentant un descriptif de formation proposé par l\'institut CHEMI', 'https://www.interieur.gouv.fr/Le-ministere/Secretariat-general/Centre-des-Hautes-Etudes-du-Ministere-de-l-Interieur', NULL),
+(4, 'IFORE', 'Institut de formation de l\'environnement', 'images/IFORE.png', 'Dans cette partie, on retrouvera un paragraphe présentant l\'institut IFORE', 'Dans cette partie, on retrouvera un paragraphe présentant un descriptif de formation proposé par l\'institut IFORE', 'http://www.ipec.developpement-durable.gouv.fr', NULL),
+(5, 'IGPDE', 'Institut de la gestion publique et du développement économique', 'images/IGPDE.png', 'Dans cette partie, on retrouvera un paragraphe présentant l\'institut IGPDE', 'Dans cette partie, on retrouvera un paragraphe présentant un descriptif de formation proposé par l\'institut IGPDE', 'https://www.economie.gouv.fr/igpde', 'https://twitter.com/Economie_Gouv'),
+(6, 'IHEDATE', 'Institut des Hautes Études d\'Aménagement des Territoires', 'images/IHEDATE.png', 'Associé à Sciences Po et à l’Ecole des Ponts, l’Ihédate repose sur une organisation partenariale originale associant structures publiques et privées, qui en fait un lieu privilégié de dialogue et de prospective sur les enjeux territoriaux.', 'Le cycle annuel s’adresse à des professionnels confirmés - élus, fonctionnaires d’État et de collectivités territoriales, responsables d’entreprises, acteurs associatifs, journalistes – pour décrypter les enjeux systémiques auxquels font face les territoires et développer la capacité de management stratégique des auditeurs.\r\nLe cycle « territoires et mobilités »,  organisé avec le soutien de France Mobilités, a pour objectif de développer une culture commune entre des acteurs venus d’horizons professionnels différents mais appelés à travailler ensemble pour améliorer les mobilités sur les territoires.', 'https://ihedate.org', 'https://twitter.com/ihedate'),
+(7, 'IHEDN', 'Institut des Hautes Études de Défense Nationale', 'images/IHEDN.png', 'Établissement public, à dimension interministérielle, placé sous la tutelle du Premier ministre, l’Institut des hautes études de défense nationale (IHEDN) a pour mission de promouvoir la culture de défense, de participer au renforcement de la cohésion nationale, et de contribuer au développement d’une réflexion stratégique portant sur les enjeux de défense et de sécurité. \" Comprendre pour agir, se comprendre pour agir ensemble \"', 'La session nationale comporte un socle commun ouvert à tous ses auditeurs (hauts responsables civils ou militaires, issus de tous les secteurs d’activités) et 5 majeures permettant l’approfondissement d’enjeux spécifiques : armement et économie de défense, défense et sécurité économique, enjeux et stratégie maritime, politique de défense, souveraineté numérique et cybersécurité. Autres sessions : européennes et internationales, régionales, cycles jeunes, cycles spécialisés. Chaque année, l’ensemble des actions de formation et d’information de l’institut concerne environ 11000 auditeurs et participants.', 'https://ihedn.fr', 'https://twitter.com/IHEDN'),
+(8, 'IHEE', 'Institut des Hautes Études de l\'Entreprise', 'images/IHEE.png', 'L’Institut des Hautes Études de l’Entreprise forme les leaders de toute la société (issus du public, du privé, des médias, des syndicats, du monde de la recherche, politique, associatif) aux problématiques actuelles et futures des entreprises, à travers des voyages d’études immersifs, l’exploration des enjeux contemporains et un travail sur leur leadership.', 'La session annuelle permet de comprendre les enjeux actuels et futurs de l’entreprise dans la mondialisation avec une pédagogie immersive et interactive en France et à l’étranger.  Elle créee des passerelles entre décideurs issus d’horizons divers : entreprise privée, haute fonction publique, magistrature, armée, syndicat, média, recherche, association, monde politique etc. \r\n=> 17 jours de formation, 6 séminaires dont 4 voyages d’étude hors de France.', 'https://www.ihee.fr', 'https://www.linkedin.com/school/institut-des-hautes-etudes-de-l-entreprise/'),
+(9, 'IHEMR', 'Institut des Hautes Études du Monde Religieux', 'images/IHEMR.png', 'Adossé au Ministère de l\'Intérieur et aux représentants des cultes en France, l\'Institut a pour vocation la formation des professionnel au meilleur niveau sur la laïcité et sur le fait religieux dans toutes ses dimensions. \r\nCes questions sont abordées à la fois par les aspect universitaires/scientifiques, confessants, légaux, régaliens. Pédagogie : rencontre, échanges libres et immersion.', 'La session annuelle \"Religions, laïcite et enjeux contemporains\" réunit 20 à 30 acteurs : magistrats, sous-préfets, parlementaires, DRH, responsables RSE, syndicalistes, dirigeants, journalistes. Elle fournit repère et clés nécessaires sur la doctrine et l\'action de l\'Etat et ce fait social majeur dans toutes ses dimensions : géopolitiques, sociologiques, relations et interdépendances aux autres champs (philosophie, anthropologie, etc.)\r\nFormations courtes élaborées sur mesure : islam, laïcité, management du fait religieux, fait religieux contemporain, etc;', 'https://www.ihemr.org', 'https://twitter.com/IHEMR_'),
+(10, 'IHEST', 'Instituts des Hautes Études pour la Science et la Technologie', 'images/IHEST.png', 'L’IHEST forme les cadres dirigeants et les influenceurs à s’appuyer sur les sciences et la démarche scientifique pour éclairer leurs décisions', 'Le cycle national de formation appréhende les enjeux de société à travers la pluralité des éclairages donnée par  les chercheurs. La méthode pédagogique est fondée sur la diversité socio-culturelle des promotions, l’apport de connaissances et  la pratique de la démarche scientifique et l’intelligence collective.\r\nD’une durée annuelle de 34 jours ( 3 jours par mois en moyenne) avec 3 voyages d’étude, le cycle s’adresse aux cadres en situation de responsabilité et aux influenceurs.', 'https://www.ihest.fr', 'https://twitter.com/IHEST'),
+(11, 'PLANET-A', 'Institut Planet A des Hautes Études de l\'Agriculture', 'images/PLANET_A.png', 'Dans cette partie, on retrouvera un paragraphe présentant l\'institut PLANET-A', 'Dans cette partie, on retrouvera un paragraphe présentant un descriptif de formation proposé par l\'institut PLANET-A', 'https://www.planet-a-initiative.com/accueil/', 'https://twitter.com/i_Planet_A'),
+(12, 'CSDD', 'Cycle Supérieur du Développement Durable', 'images/CSDD.png', 'Le cycle supérieur de développement durable porté par le ministère de la Transition écologique accompagne depuis 2009 les cadres dirigeants parties prenantes des transitions écologiques dans la mutation de leurs environnements, missions et métiers.', 'Le CSDD permet aux décideurs d\'intégrer les enjeux et principes du developpement durable dans leur cœur de métier et la stratégie de leur organisation,\r\nafin de développer notre capacité d\'action collective et notre impact au service des transitions. \r\nCe cycle de haut niveau est ouvert à tous les décideurs interministériels, territoriaux, hospitaliers et du secteur entrepreneurial et associatif ainsi qu’aux élus.\r\nIl s\'articule en 3 séminaires de 4 jours de janvier à juin, prolongé par les journées du réseau CSDD.', 'http://www.ipec.developpement-durable.gouv.fr/le-cycle-superieur-du-developpement-durable-r59.html', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Pedagogie`
+--
+
+CREATE TABLE `Pedagogie` (
+  `id_pedagogie` int(11) NOT NULL,
+  `titre` varchar(100) NOT NULL,
+  `sous_titre` varchar(100) NOT NULL,
+  `texte` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `Pedagogie`
+--
+
+INSERT INTO `Pedagogie` (`id_pedagogie`, `titre`, `sous_titre`, `texte`) VALUES
+(1, 'Les Instituts des Hautes Études', 'Relier les intelligences', 'La pédagogie se décline selon les principes suivants : \r\nles apports sont théoriques (essentiellement universitaires) et terrain (experts, personnes en responsabilité)\r\ndes travaux en groupes de pairs : issus d\'univers professionnels différents, les participants vont s\'enrichir par leur regards méthodes, problématiques différentes.\r\ntoutes les rencontres se tiennent dans des formats en garantissant la qualité\r\nsoutenance des travaux réalisés en groupe devant les autorités de tutelle, éventuelle publication de ces travaux\r\nBien sur, la confidentialité des échanges est assurée ce qui donne aux intervenants et auditeurs la liberté requise pour traiter des questions de fond.\r\n​\r\nIl est a relever que dans tous les instituts la partie \"terrain\", sous forme de voyages et déplacements \"in situ\" est largement favorisée car ces rencontres et partages sont les très efficaces pour l\'acquisition rapide d\'éléments clés concrets outre l\'effet réseau. Les apports théoriques servent notamment à soutenir cette démarche. \r\n​\r\nLes \"sessions nationales ou \"régionales\" font de 130H à 400H selon les instituts');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `Accueil`
+--
+ALTER TABLE `Accueil`
+  ADD PRIMARY KEY (`id_accueil`);
+
+--
+-- Indexes for table `Auditeur`
+--
+ALTER TABLE `Auditeur`
+  ADD PRIMARY KEY (`id_auditeur`);
+
+--
+-- Indexes for table `AutreTexte`
+--
+ALTER TABLE `AutreTexte`
+  ADD PRIMARY KEY (`id_autre`);
+
+--
+-- Indexes for table `Evenement`
+--
+ALTER TABLE `Evenement`
+  ADD PRIMARY KEY (`id_event`);
+
+--
+-- Indexes for table `Experience`
+--
+ALTER TABLE `Experience`
+  ADD PRIMARY KEY (`id_experience`);
+
+--
+-- Indexes for table `Institut`
+--
+ALTER TABLE `Institut`
+  ADD PRIMARY KEY (`id_institut`);
+
+--
+-- Indexes for table `Pedagogie`
+--
+ALTER TABLE `Pedagogie`
+  ADD PRIMARY KEY (`id_pedagogie`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `Accueil`
+--
+ALTER TABLE `Accueil`
+  MODIFY `id_accueil` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `Auditeur`
+--
+ALTER TABLE `Auditeur`
+  MODIFY `id_auditeur` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `AutreTexte`
+--
+ALTER TABLE `AutreTexte`
+  MODIFY `id_autre` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `Evenement`
+--
+ALTER TABLE `Evenement`
+  MODIFY `id_event` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `Experience`
+--
+ALTER TABLE `Experience`
+  MODIFY `id_experience` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `Institut`
+--
+ALTER TABLE `Institut`
+  MODIFY `id_institut` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT for table `Pedagogie`
+--
+ALTER TABLE `Pedagogie`
+  MODIFY `id_pedagogie` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
